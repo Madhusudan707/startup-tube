@@ -1,0 +1,16 @@
+.thumbnail{
+
+
+}
+.thumbnail>.video_thumbnail>img {
+  width: 400px;
+}
+
+.video_thumbnail {
+  display: inline-block;
+  cursor: pointer;
+  
+}
+.thumbnail::-webkit-scrollbar {
+  display: none;
+  }

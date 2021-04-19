@@ -1,0 +1,18 @@
+.fb{
+    color:var(--fb)
+}
+.twitter{
+    color:var(--twitter)
+}
+.google{
+    color:var(--google)
+}
+.linkedin{
+    color:var(--linkedin)
+  }
+  .instagram{
+    color:var(--instagram)
+  }
+  .github{
+    color:var(--github)
+  }

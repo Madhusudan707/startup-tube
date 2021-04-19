@@ -1,0 +1,9 @@
+.history{
+    width: 100%;
+    grid-area: history;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top:15%;
+}

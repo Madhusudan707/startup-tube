@@ -1,0 +1,69 @@
+import { useRef } from "react";
+import axios from 'axios'
+import { useLibrary } from "../contexts/index";
+
+export const useSaveToPlaylistHandler = () => {
+  const inputPlaylist = useRef(null);
+  const { libraryState, libraryDispatch } = useLibrary();
+  const saveToPlaylistHandler =async (videoIdParam) => {
+    if (videoIdParam) {
+      console.log("videoIdParam")
+      const isPlaylist = libraryState.data.some(
+        (playlist) => playlist.name === inputPlaylist.current.value
+      );
+      if (!isPlaylist) {
+        
+        const newPlaylistArray = [
+          ...libraryState.data,
+          {
+            uid:1,
+            vid: [videoIdParam],
+            name: inputPlaylist.current.value,
+          },
+        ];
+        try{
+          await axios.post("http://localhost:5000/Playlists",{ uid:1, vid:[videoIdParam],  name: inputPlaylist.current.value})
+          
+      } catch (err) {
+         console.log(err,"Unable to Save Playlist, Try Again")
+        }
+        finally{
+          libraryDispatch({
+            type: "SAVE-TO-NEW-PLAYLIST",
+            payload: { newPlaylist: newPlaylistArray },
+          });
+        }
+
+
+       
+      } else {
+        const playlistArray = libraryState.data.map((playlist) => {
+          if (playlist.name === inputPlaylist.current.value) {
+            if (playlist.vid.length === 0) {
+              return { ...playlist, vid: [videoIdParam] };
+            } else if (
+              !playlist.vid.some((videoId) => videoId === videoIdParam)
+            ) {
+              return { ...playlist, vid: [...playlist.vid, videoIdParam] };
+            }
+          }
+          return playlist;
+        });
+        try{
+          // await axios.post("http://localhost:5000/Playlists",playlistArray)
+          
+      } catch (err) {
+         console.log(err,"Unable to Add Video to Playlist, Try Again")
+        }
+        finally{
+          libraryDispatch({
+            type: "SAVE-TO-PLAYLIST",
+            payload: { playlist: playlistArray },
+          });
+        }
+       
+      }
+    }
+  };
+  return { saveToPlaylistHandler, inputPlaylist };
+};

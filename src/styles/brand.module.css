@@ -1,0 +1,13 @@
+
+.brand{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    flex-flow:row nowrap;
+    grid-area:brand; 
+    color:var(--secondary-color);
+}
+.brand>span{
+    padding:0.5rem;
+    color:var(--secondary-color);
+}

@@ -1,0 +1,6 @@
+.page{
+    display: flex;
+    height: 45vw;
+    align-items: center;
+    grid-area:body;
+}

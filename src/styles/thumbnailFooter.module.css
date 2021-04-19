@@ -1,0 +1,51 @@
+.video_footer{
+    display:grid;
+    background:var(--thumbnail-footer-bg);
+    grid-template-areas: "profile  texts";
+    align-items: center;
+    margin:0 0.2rem;
+
+}
+
+.video_profile{
+    grid-area:profile;
+    justify-self: center;
+}
+
+
+.video_profile>img{
+    width:30px;
+}
+
+.video_texts{
+    grid-area:texts;
+    color:#ffffff;
+    
+}
+
+.video_title{
+    font-size:0.7rem;
+    font-size:1rem;
+    font-weight: bolder;
+    text-align: center;
+    justify-self: center;
+}
+
+.video_info{
+    justify-self: center;
+    font-size:1rem;
+   padding: 0 1rem;
+   text-align: center;
+   font-weight: bold;
+}
+
+
+/* .video_options{
+    grid-area:options;
+    justify-self:center;
+} */
+
+
+.video_options>img{
+    width:6px;
+}

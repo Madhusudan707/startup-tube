@@ -1,0 +1,9 @@
+.library{
+ display:grid;
+ grid-template-areas: 
+ "filter-search filter-search"
+ "thumbnail thumbnail";
+ grid-gap:10%;
+ margin-top:5%
+  
+}

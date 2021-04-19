@@ -1,0 +1,77 @@
+.style_switcher {
+    display: flex;
+    flex-flow: column;
+    grid-area: style-switcher;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0 1rem;
+    background: none repeat scroll 0 0 var(--white-color);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .3);
+    border: 1px solid #ECECEC;
+    border-radius: 60px;
+    position: fixed;
+    margin-top: 10%;
+    width: 30px;
+    z-index: 1;
+    opacity: 0.1;
+    
+}
+.style_switcher>div{
+    cursor:pointer;
+    border-radius:10px
+}
+.style_switcher>div:hover{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.header>span>i{
+    position: absolute;
+    top:-7%;
+    left:60%;
+    padding:0.5rem;
+    font-size:2rem;
+    /* background: red; */
+    
+}
+.header>span>i:hover{
+    color:red;
+}
+
+.color_palette {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0;
+    font-size: 1rem;
+    background: var(--black-color);
+    margin: 1rem;
+}
+
+
+.reset_color {
+    color:
+    var(--black-color);
+}
+
+.red {
+    background: var(--theme-red)
+}
+
+.aqua {
+    background: var(--theme-aqua)
+}
+
+.golden {
+    background: var(--theme-golden)
+}
+
+.purple {
+    background: var(--theme-purple)
+}
+
+.green {
+    background: var(--theme-green)
+}
+
+.green2 {
+    background: var(--theme-green2)
+}
