@@ -124,15 +124,47 @@
   color:var(--fb);
 }
 
-.login_panel>button{
+.login_panel>a>button{
   margin:5% 0;
-  width: 65%;
+  width: 100%;
   padding: 1rem;
   font-size: 1.2rem;
   border-radius: 0;
   background: var(--secondary-color);
 }
-.login_panel>button:hover{
+.login_panel>a>button:hover{
+
+  color: var(--secondary-color);
+}
+
+/*OTP Modal */
+.otpInput>input{
+  width: 250px;
+  padding:2rem;
+  margin:0.5rem;
+}
+
+.modal_content_otp {
+  width: 25%;
+  height:300px;
+  position: relative;
+  margin: 15% auto;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.otp_actions>button{
+  margin:5% 0;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0;
+  background: var(--secondary-color);
+}
+.otp_actions>button:hover{
 
   color: var(--secondary-color);
 }

@@ -1,13 +1,14 @@
 .home {
-    display: grid;
+    display: flex;
     align-items: center;
-    grid-template-areas: "about about-video";
+    justify-content:center;
+    /* grid-template-areas: "about about-video"; */
     margin: 0 3rem;
 }
 
 .about {
     padding: 0 6rem;
-    grid-area: about
+    /* grid-area: about */
 }
 
 .about>p {
@@ -20,5 +21,36 @@
 }
 
 .video_wrapper>iframe {
-    grid-area: about-video;
+    /* grid-area: about-video; */
+
+}
+
+@media screen and (max-width:1800px){
+    .home {
+       
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-flow:column wrap;
+        margin-top:30%;
+    }
+    .video_wrapper>iframe {
+        /* grid-area: about-video; */
+        width:80vw;
+    }
+}
+
+@media screen and (max-width:1500px){
+    .home {
+       
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-flow:column wrap;
+        margin-top:60%;
+    }
+    .video_wrapper>iframe {
+        /* grid-area: about-video; */
+        width:80vw;
+    }
 }

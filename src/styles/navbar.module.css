@@ -20,6 +20,19 @@
     font-weight: 800;
 }
 
+@media screen and (max-width:1318px){
+    .nav_ul>li>a {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .nav_ul>li>a {
+        font-size: 0.7rem;
+    }
+}
+
+
 .nav_ul>li>a:hover {
     border-bottom: 2px solid var(--white-color);
     color: var(--white-color);
