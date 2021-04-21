@@ -2,8 +2,13 @@ import React from 'react'
 import styles from '../../../styles/register.module.css'
 import {Button} from '../../Button/Button'
 import {useTheme} from '../../../contexts/index'
+import {useSignup} from '../../../hooks/index'
 export const Register = () => {
+ 
+
   const{theme} = useTheme()
+ const{signUpHandler,username,email,password,cpassword} = useSignup()
+  
     return (
         <div className={styles.register}>
           <a href="#registerModal"> <Button btnText="REGISTER"/></a> 
@@ -14,11 +19,11 @@ export const Register = () => {
           </a>
           <div className={styles.login_panel}>
               {/* <span><i className="fas fa-lock fa-3x"></i></span> */}
-            <input type="text" placeholder="Enter Username" />
-            <input type="text" placeholder="Enter Email" />
-            <input type="password" placeholder="Enter Password" />
-            <input type="password" placeholder="Confirm Password" />
-            <Button btnText="SUBMIT"/>
+            <input type="text" placeholder="Enter Username" ref={username} />
+            <input type="text" placeholder="Enter Email" ref={email}/>
+            <input type="password" placeholder="Enter Password" ref={password}/>
+            <input type="password" placeholder="Confirm Password" ref={cpassword}/>
+            <Button btnText="SUBMIT" func={signUpHandler}/>
             <span>
              
             </span>

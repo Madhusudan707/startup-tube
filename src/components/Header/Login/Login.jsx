@@ -3,8 +3,10 @@ import styles from "../../../styles/login.module.css";
 import { Button } from "../../Button/Button";
 import '../../../styles/social_logo.css'
 import {useTheme} from '../../../contexts/index'
+import {useSignin} from '../../../hooks/index'
 export const Login = () => {
   const{theme} = useTheme()
+  const {signInHandler,username,password} = useSignin()
   return (
     <div className={styles.login}>
       <a href="#loginModal">
@@ -17,9 +19,9 @@ export const Login = () => {
           </a>
           <div className={styles.login_panel}>
               {/* <span><i className="fas fa-lock fa-3x"></i></span> */}
-            <input type="text" placeholder="Enter Username" />
-            <input type="password" placeholder="Enter Password" />
-            <Button btnText="SUBMIT"/>
+            <input type="text" placeholder="Enter Username" ref={username} />
+            <input type="password" placeholder="Enter Password" ref={password} />
+            <Button btnText="SUBMIT" func={signInHandler}/>
             <span>
               <label htmlFor="remember_me">
                <input type="checkbox" id="remember_me" />

@@ -6,8 +6,10 @@ function initializeDBConnection(){
     mongoose.connect("mongodb+srv://xdev:Xdev@1234@maddy.55igy.mongodb.net/startup-tube",{
         useUnifiedTopology: true,
         useNewUrlParser: true,
+        useFindAndModify:true,
+        useCreateIndex:true
     })
-    .then(() => console.log("successfully connected"))
+    .then(() => console.log("MongoDB Connected"))
     .catch(error => console.error("mongoose connection failed...", error))
 }
 

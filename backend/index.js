@@ -14,12 +14,14 @@ const videos = require("./routes/videos.router");
 const playlists = require("./routes/playlist.router");
 const histories = require("./routes/history.router")
 const userInfo = require("./routes/userInfo.router")
+const users  = require("./routes/users.router")
 // called before any route handler
 
 app.use("/videos", videos);
 app.use("/playlists", playlists);
 app.use("/histories", histories);
 app.use("/userInfo",userInfo);
+app.use("/users",users)
 
 
 app.get("/", (request, response) => {

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {Playlists} =  require("../models/playlist.modal")
+const {Playlists} =  require("../models/playlist.model")
 
 router.route("/")
 .get(async(req,res)=>{
