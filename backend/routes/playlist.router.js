@@ -8,7 +8,7 @@ router.route("/")
         const data = await Playlists.find({})
         res.json({success:true,data})
     }catch(err){
-        res.status(500).json({success:false,message:"Unable to load videos",errorMessage:err.message})
+        res.status(500).json({success:false,message:"Unable to load playlist",errorMessage:err.message})
     }
 })
 
@@ -20,6 +20,18 @@ router.route("/")
         res.json({success:true,playlists:savedPlaylist})
     }catch(err){
         res.status(500).json({ success: false, message: "unable to add playlist", errorMessage: err.message})
+    }
+})
+
+
+router.route("/:name")
+.get(async(req,res)=>{
+    res.send(req.params)
+    try{
+        const data = await Playlists.find({})
+        res.json({success:true,data})
+    }catch(err){
+        res.status(500).json({success:false,message:"Unable to load playlist",errorMessage:err.message})
     }
 })
 module.exports = router

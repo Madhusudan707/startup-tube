@@ -1,5 +1,5 @@
-import { HOME,LIBRARY,PLAYER,PLAYLIST,HISTORY} from "./paths";
-import {HomePage,LibraryPage,PlayerPage,PlaylistPage,HistoryPage} from '../pages/index'
+import { HOME,LIBRARY,PLAYER,PLAYLIST,HISTORY,PLAYLIST_THUMBNAILS} from "./paths";
+import {HomePage,LibraryPage,PlayerPage,PlaylistPage,HistoryPage,PlaylistThumbnailPage} from '../pages/index'
 // import {Contact} from '../components/index'
 
 
@@ -17,10 +17,14 @@ const PLAYLIST_THREE = {
   component: PlaylistPage,
   path: PLAYLIST,
 };
-const HISTORY_FOUR = {
+const PLAYLIST_THUMBNAILS_FOUR={
+  component: PlaylistThumbnailPage,
+  path: PLAYLIST_THUMBNAILS,
+};
+const HISTORY_FIVE = {
   component:HistoryPage,
   path:HISTORY
-}
+};
 // const WATCH_LATER_FOUR={
 //   component:WatchLaterPage,
 //   path:WATCH_LATER
@@ -39,6 +43,6 @@ const PLAYER_SEVEN = {
   path: PLAYER,
 };
 
-const routes = [HOME_ONE,LIBRARY_TWO,PLAYLIST_THREE,HISTORY_FOUR,PLAYER_SEVEN];
+const routes = [HOME_ONE,LIBRARY_TWO,PLAYLIST_THREE,PLAYLIST_THUMBNAILS_FOUR,HISTORY_FIVE,PLAYER_SEVEN];
 
 export default routes;

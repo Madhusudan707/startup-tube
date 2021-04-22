@@ -6,7 +6,6 @@ import {Contact} from '../../index'
 import {usePathName} from '../../../hooks/index'
 export const NavBar = () => {
     const {pathUrl} = usePathName()
-    console.log(pathUrl)
     return (
         <div className={styles.navbar}>
             <ul className={styles.nav_ul}>
