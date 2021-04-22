@@ -26,7 +26,7 @@ export const History = () => {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/histories");
+      const response = await axios.get("https://startup-tube-backend.herokuapp.com/histories");
      
       const filterVideos = await videoState.data.filter((video) => {
         return  response.data.data.some((history) => {

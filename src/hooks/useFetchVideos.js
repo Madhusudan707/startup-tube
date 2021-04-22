@@ -13,7 +13,7 @@ export const useFetchVideos = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/Videos");
+      const response = await axios.get("https://startup-tube-backend.herokuapp.com/videos");
       videoDispatch({
         type: "ON-SUCCESS",
         payload: { initialData: response.data.data },

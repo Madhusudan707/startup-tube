@@ -8,7 +8,7 @@ export const useSignup=()=>{
     const cpassword = useRef(null);
     const signUpHandler = async()=>{
         try{
-            await axios.post("http://localhost:5000/users",{ username:username.current.value, email:email.current.value,password:password.current.value})
+            await axios.post("https://startup-tube-backend.herokuapp.com/users",{ username:username.current.value, email:email.current.value,password:password.current.value})
             console.log("User Registered Successfully")
         }catch(err){
             console.log(`${err}:Unable to Register`)

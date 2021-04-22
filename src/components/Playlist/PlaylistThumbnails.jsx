@@ -9,7 +9,7 @@ export const PlaylistThumbnails = () => {
 
   const  fetchPlaylistByName=async()=>{
       try{
-          const playlistResponse = axios.get(`http://localhost:5000/playlists/:${playlist_name}`)
+          const playlistResponse = axios.get(`https://startup-tube-backend.herokuapp.com/playlists:${playlist_name}`)
           console.log(playlistResponse)
       }
       catch(err){

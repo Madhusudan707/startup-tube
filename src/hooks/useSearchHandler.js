@@ -20,7 +20,7 @@ export const useSearchHandler = () => {
      
       try {
         console.log("try")
-        const response = await axios.get("http://localhost:5000/Videos");
+        const response = await axios.get("https://startup-tube-backend.herokuapp.com/videos");
         console.log(response)
         videoDispatch({ type: "RESET", payload:{resetData:response.data.data}});
       } catch (err) {
