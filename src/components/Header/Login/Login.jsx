@@ -59,7 +59,7 @@ export const Login = () => {
                 ></i></a> */}
                 { !login && 
             <FacebookLogin
-              appId="562118384400275"
+              appId="452382379375107"
               autoLoad={true}
               fields="name,email,picture"
               scope="public_profile,user_friends"
