@@ -17,11 +17,15 @@
 }
 
 .video_wrapper{
-
+ 
+ 
 }
 
 .video_wrapper>iframe {
     /* grid-area: about-video; */
+    aspect-ratio:16/9;
+  
+    height:615px;
 
 }
 
@@ -34,10 +38,7 @@
         flex-flow:column wrap;
         margin-top:30%;
     }
-    .video_wrapper>iframe {
-        /* grid-area: about-video; */
-        width:80vw;
-    }
+    
 }
 
 @media screen and (max-width:1500px){
@@ -49,8 +50,5 @@
         flex-flow:column wrap;
         margin-top:60%;
     }
-    .video_wrapper>iframe {
-        /* grid-area: about-video; */
-        width:80vw;
-    }
+   
 }
