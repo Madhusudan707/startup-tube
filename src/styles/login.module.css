@@ -63,7 +63,7 @@
 
 .modal_content {
   width: 25%;
-  height:auto;
+  height:500px;
   position: relative;
   margin: 6% auto;
   background: #ffffff;
@@ -73,60 +73,46 @@
   justify-content: center;
 }
 
+fieldset{
+  border:2px solid white;
+  border-radius: 6px;
+}
+legend{
+  /* font-weight: bold; */
+  font-family:sans-serif;
+}
 .login_panel{
   width: 100%;
   display: flex;
   flex-flow:column wrap;
   align-items: center;
+  justify-content: center;
+  gap:10%;
 }
 .login_panel>input{
   width: 250px;
   padding:2rem;
   margin:0.5rem;
+  font-size:1.5rem;
+}
+.login_panel>input::placeholder{
+  font-size:1.5rem;
 }
 .login_panel>span>label{
   color:var(--secondary-color);
   padding:1rem;
 }
 .login_panel>span>a{
-  color:red;
-}
-.social_login{
-  display:flex;
-  flex-flow:column wrap
-}
-.social_login>h2{
-  color:var(--secondary-color);
-  margin-top:1.5rem;
-  text-align: center;
-}
-.social_login>span>a>i{
-  padding:1rem;
-  cursor:pointer;
+  /* color:red; */
+  font-weight: bold;
+  color:var(--black-color)
 }
 
-.social_login>span>a:nth-child(1){
-  color:var(--secondary-color);
-}
-.social_login>span>a>i:hover{
-  box-shadow: 0 0 11px rgba(33,33,33,.2); 
-}
-
-.social_login>a{
-  text-align: center;
-  font-size:1.1rem;
-  color:var(--secondary-color);
-  font-weight:bold;
-  padding:2rem 0;
-}
-
-.fb_logo{
-  color:var(--fb);
-}
 
 .login_panel>a>button{
   margin:5% 0;
-  width: 100%;
+  max-width: 100%;
+  width:300px;
   padding: 1rem;
   font-size: 1.2rem;
   border-radius: 0;
@@ -136,17 +122,26 @@
 
   color: var(--secondary-color);
 }
+.login_panel>a{
+ font-weight: bold;
+  margin-top:1rem;
+  color:var(--black-color)
+}
 
 /*OTP Modal */
 .otpInput>input{
   width: 250px;
   padding:2rem;
   margin:0.5rem;
+  font-size:1.5rem;
+}
+.otpInput>input::placeholder{
+  font-size:1.5rem;
 }
 
 .modal_content_otp {
   width: 25%;
-  height:300px;
+  height:auto;
   position: relative;
   margin: 15% auto;
   background: #ffffff;
@@ -154,6 +149,7 @@
   align-items: center;
   flex-flow: column;
   justify-content: center;
+  padding:1rem;
 }
 
 .otp_actions>button{

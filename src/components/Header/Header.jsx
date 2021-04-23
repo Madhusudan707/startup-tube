@@ -10,7 +10,7 @@ export const Header = () => {
             <Brand/>
             <NavBar/>
             <Login/>
-            <Register/>
+            {/* <Register/> */}
         </div>
     )
 }

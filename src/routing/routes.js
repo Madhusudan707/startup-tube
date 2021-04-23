@@ -1,6 +1,6 @@
-import { HOME,LIBRARY,PLAYER,PLAYLIST,HISTORY,PLAYLIST_THUMBNAILS} from "./paths";
+import { HOME,LIBRARY,PLAYER,PLAYLIST,HISTORY,PLAYLIST_THUMBNAILS,USER_PROFILE} from "./paths";
 import {HomePage,LibraryPage,PlayerPage,PlaylistPage,HistoryPage,PlaylistThumbnailPage} from '../pages/index'
-// import {Contact} from '../components/index'
+import {UserProfile} from '../components/index'
 
 
 
@@ -43,6 +43,11 @@ const PLAYER_SEVEN = {
   path: PLAYER,
 };
 
-const routes = [HOME_ONE,LIBRARY_TWO,PLAYLIST_THREE,PLAYLIST_THUMBNAILS_FOUR,HISTORY_FIVE,PLAYER_SEVEN];
+const USER_PROFILE_EIGHT = {
+  component: UserProfile,
+  path: USER_PROFILE
+}
+
+const routes = [HOME_ONE,LIBRARY_TWO,PLAYLIST_THREE,PLAYLIST_THUMBNAILS_FOUR,HISTORY_FIVE,PLAYER_SEVEN,USER_PROFILE_EIGHT];
 
 export default routes;

@@ -6,5 +6,6 @@ export const HISTORY = "/history"
 // export const WATCH_LATER = "/watch_later"
 // export const LIKE_VIDEOS = "/like_videos"
 export const PLAYER = "/player"
+export const USER_PROFILE = "/user_profile"
 // export const CONTACT="/#contactModal"
 

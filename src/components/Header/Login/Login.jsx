@@ -1,31 +1,19 @@
-import React,{useState} from "react";
-import FacebookLogin from 'react-facebook-login';
+import React, { useState, useRef } from "react";
+import FacebookLogin from "react-facebook-login";
 import styles from "../../../styles/login.module.css";
-import { Button } from "../../Button/Button";
-import '../../../styles/social_logo.css'
-import {useTheme} from '../../../contexts/index'
-import {useSignin,useOtp} from '../../../hooks/index'
+import { Button, Timer } from "../../index";
+import "../../../styles/social_logo.css";
+import { useTheme } from "../../../contexts/index";
+import { useSignin, useOtp, useTimer,useFacebook } from "../../../hooks/index";
+
 export const Login = () => {
+  const urlHashValue = window.location.hash;
+  const {responseFacebook,login} = useFacebook()
+  const { theme } = useTheme();
+  const { signInHandler, mobile_no_value, mobile_no } = useSignin();
+  const { otpHandler, otp } = useOtp();
+  const { timeLeft } = useTimer();
 
-  const [login, setLogin] = useState(false);
-  const [data, setData] = useState({});
-  const [picture, setPicture] = useState('');
-
-  const responseFacebook = (response) => {
-    console.log(response);
-    setData(response);
-    setPicture(response.picture.data.url);
-    if (response.accessToken) {
-      setLogin(true);
-    } else {
-      setLogin(false);
-    }
-  }
-
-
-  const{theme} = useTheme()
-  const {signInHandler,username,password} = useSignin()
-  const {otpHandler,otp} = useOtp()
   return (
     <div className={styles.login}>
       <a href="#loginModal">
@@ -36,56 +24,81 @@ export const Login = () => {
           <a href="#close" title="Close" className={styles.modal_close}>
             X
           </a>
-          <div className={styles.login_panel}>
-              {/* <span><i className="fas fa-lock fa-3x"></i></span> */}
-            <input type="text" placeholder="Enter Username" ref={username} />
-            <input type="password" placeholder="Enter Password" ref={password} />
-            <a href='#otpModal'><Button btnText="SUBMIT" func={signInHandler}/></a>
-            <span>
-              <label htmlFor="remember_me">
-               <input type="checkbox" id="remember_me" />
-                Remember Me
-              </label>
-            
-              <a href="#!">Forget Password</a>
-            </span>
-
-            <div className={styles.social_login}>
-              <h2>Social Login</h2>
+          <fieldset>
+            <legend>Login</legend>
+            <br />
+            <div className={styles.login_panel}>
+              <input
+                type="text"
+                placeholder="Enter Mobile No"
+                ref={mobile_no}
+              />
               <span>
-               {/* <a href="#!"> <i
-                  className="fas fa-mobile-alt fa-3x"
-                  title="Login With Mobile"
-                ></i></a> */}
-                { !login && 
-            <FacebookLogin
-              appId="452382379375107"
-              // autoLoad={true}
-              fields="name,email,picture"
-              scope="public_profile,user_friends"
-              callback={responseFacebook}
-              icon="fa-facebook" />
-          }
-                {/* <a href="#!"> <i className="fab fa-twitter-square fa-3x twitter"></i></a>
-                <a href="#!"><i className="fab fa-google fa-3x google"></i></a> */}
+                {/* <label htmlFor="remember_me">
+                  <input type="checkbox" id="remember_me" />
+                  Remember Me
+                </label> */}
+
+                <a href="#!">Forget Password</a>
               </span>
-              <a href='#registerModal'>Not registered? Create an account</a>
+              <a href="#otpModal" className={styles.otpBtn}>
+                <Button btnText="GET OTP" func={signInHandler} />
+              </a>
+              <h2> OR</h2>
+              <span>
+                {!login && (
+                  <FacebookLogin
+                    appId="452382379375107"
+                    // autoLoad={true}
+                    fields="name,email,picture"
+                    scope="public_profile,user_friends"
+                    callback={responseFacebook}
+                    icon="fa-facebook"
+                  />
+                )}
+              </span>
+              {/* <a href="#registerModal">Not registered? Create an account</a> */}
             </div>
-          </div>
+          </fieldset>
         </div>
       </div>
       <div id="otpModal" className={styles.modal} autoFocus={false}>
-      <div className={`${styles.modal_content_otp} ${theme}`}>
-          <div className={styles.otpInput}>
-            <input type='number' ref={otp} placeholder="Enter OTP here"/>
-          </div>
-          <div className={styles.otp_actions}>
-          <Button btnText='SUBMIT' func={otpHandler}/>
-          <Button btnText='RESEND OTP'/>
-           
-           
-          </div>
-          </div>
+        <a
+          href="#close"
+          title="Close"
+          style={{ color: "red" }}
+          className={styles.modal_otp_close}
+        >
+          X
+        </a>
+
+        <div className={`${styles.modal_content_otp} ${theme}`}>
+          <fieldset>
+            <legend>OTP</legend>
+            <div className={styles.otpInput}>
+              <h4>OTP Sent to : {mobile_no_value} </h4>
+              <input type="number" ref={otp} placeholder="Enter OTP here" />
+            </div>
+            {/* {urlHashValue==="#otpModal"?<Timer/>:null} */}
+            <div className={styles.otp_actions}>
+              <Button
+                btnText="SUBMIT"
+                func={() => {
+                  otpHandler(mobile_no_value);
+                }}
+              />
+              <Button
+                btnText={
+                  timeLeft === 0 ? (
+                    "RESEND OTP"
+                  ) : urlHashValue === "#otpModal" ? (
+                    <Timer />
+                  ) : null
+                }
+              />
+            </div>
+          </fieldset>
+        </div>
       </div>
     </div>
   );
