@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from '../../../styles/heading.module.css'
 export const Heading = ({text}) => {
     return (

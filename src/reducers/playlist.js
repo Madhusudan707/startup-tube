@@ -6,24 +6,24 @@ export const initialState = {
 
 export const playlistReducer = (state, action) => {
   switch (action.type) {
-    case "ON-SUCCESS":
+    case "ON_SUCCESS":
       return {
         loading: false,
         data: action.payload.initialData,
         error: "",
       };
-    case "ON-SEARCH":
+    case "ON_SEARCH":
       return {
         loading: false,
         data: action.payload.searchData,
       };
-    case "ON-FAILURE":
+    case "ON_FAILURE":
       return {
         loading: false,
         data: [],
         error: "Unable to Load Products, Try after sometime",
       };
-    case "WATCH-LATER":
+    case "WATCH_LATER":
       return {
         loading: false,
         data: action.payload.watchLater,

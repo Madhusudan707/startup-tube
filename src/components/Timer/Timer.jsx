@@ -1,5 +1,5 @@
-import React,{useRef} from 'react'
-import {useTimer} from '../../hooks/index'
+import {useRef} from 'react'
+import {useTimer} from '../../hooks'
 
 export const Timer = ({ref}) => {
     const timer_value = useRef(null);

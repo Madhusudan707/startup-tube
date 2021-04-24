@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from '../../../styles/brand.module.css'
 export const Brand = () => {
     return (

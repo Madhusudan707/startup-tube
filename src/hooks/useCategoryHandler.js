@@ -9,11 +9,11 @@ export const useCategoryHandler = () => {
         return category.toLowerCase() === video.category ? video : null;
       });
       filterDispatch({
-        type: "FILTER-VIDEO-BY-CATEGORY",
+        type: "FILTER_VIDEO_BY_CATEGORY",
         payload: { filterCategory: filterCategoryArray },
       });
     } else {
-      filterDispatch({ type: "RESET-FILTER" });
+      filterDispatch({ type: "RESET_FILTER" });
     }
   };
 

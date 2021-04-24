@@ -6,23 +6,23 @@ export const initialState = {
   
   export const historyReducer = (state, action) => {
     switch (action.type) {
-      case "ON-SUCCESS":
+      case "ON_SUCCESS":
         return {
           loading: false,
           data: action.payload.initialData,
           error: "",
         };
-      case "ON-SEARCH":
+      case "ON_SEARCH":
         return{
           loading:false,
           data:action.payload.searchData,
         }
-      case "FILTER-HISTORY-VIDEOS":
+      case "FILTER_HISTORY_VIDEOS":
         return{
           loading:false,
           data:action.payload.historyVideos
         }
-      case "ON-FAILURE":
+      case "ON_FAILURE":
         return {
           loading: false,
           data: [],

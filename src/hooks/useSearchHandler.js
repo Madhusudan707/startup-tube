@@ -15,7 +15,7 @@ export const useSearchHandler = () => {
         }
         return null;
       });
-      videoDispatch({ type: "ON-SEARCH", payload:{searchData:data}});
+      videoDispatch({ type: "ON_SEARCH", payload:{searchData:data}});
     } else {
      
       try {
@@ -24,7 +24,7 @@ export const useSearchHandler = () => {
         console.log(response)
         videoDispatch({ type: "RESET", payload:{resetData:response.data.data}});
       } catch (err) {
-        videoDispatch({ type: "ON-FAILURE", payload: "" });
+        videoDispatch({ type: "ON_FAILURE", payload: "" });
       }
     }
   };

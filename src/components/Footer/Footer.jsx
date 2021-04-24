@@ -1,6 +1,5 @@
-import React from 'react'
 import styles from '../../styles/footer.module.css'
-import {useTheme} from '../../contexts/index'
+import {useTheme} from '../../contexts'
 export const Footer = () => {
     const {theme} = useTheme()
     return (

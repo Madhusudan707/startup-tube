@@ -14,9 +14,9 @@ export const useFetchPlaylist = ()=>{
     const fetchPlaylist = async()=>{
         try{
             const response = await axios.get("https://startup-tube-backend.herokuapp.com/playlists")
-            playlistDispatch({type:"ON-SUCCESS",payload:{initialData:response.data.data}})
+            playlistDispatch({type:"ON_SUCCESS",payload:{initialData:response.data.data}})
         } catch (err) {
-            playlistDispatch({ type: "ON-FAILURE", payload: "" });
+            playlistDispatch({ type: "ON_FAILURE", payload: "" });
           }
         
     }

@@ -2,12 +2,12 @@ import FacebookLogin from "react-facebook-login";
 import styles from "../../../styles/login.module.css";
 import { Button, Timer } from "../../index";
 import "../../../styles/social_logo.css";
-import { useTheme } from "../../../contexts/index";
-import { useSignin, useOtp, useTimer,useFacebook } from "../../../hooks/index";
+import { useTheme } from "../../../contexts";
+import { useSignin, useOtp, useTimer, useFacebook } from "../../../hooks";
 
 export const Login = () => {
   const urlHashValue = window.location.hash;
-  const {responseFacebook,login} = useFacebook()
+  const { responseFacebook, login } = useFacebook();
   const { theme } = useTheme();
   const { signInHandler, mobile_no_value, mobile_no } = useSignin();
   const { otpHandler, otp } = useOtp();
@@ -46,13 +46,16 @@ export const Login = () => {
               <h2> OR</h2>
               <span>
                 {!login && (
-                <a href="#!">  <FacebookLogin
-                    appId="452382379375107"
-                    // autoLoad={true}
-                    fields="name,email,picture"
-                    callback={responseFacebook}
-                    icon="fa-facebook"
-                  /></a>
+                  <a href="#!">
+                    {" "}
+                    <FacebookLogin
+                      appId="452382379375107"
+                      // autoLoad={true}
+                      fields="name,email,picture"
+                      callback={responseFacebook}
+                      icon="fa-facebook"
+                    />
+                  </a>
                 )}
               </span>
               {/* <a href="#registerModal">Not registered? Create an account</a> */}
@@ -79,12 +82,15 @@ export const Login = () => {
             </div>
             {/* {urlHashValue==="#otpModal"?<Timer/>:null} */}
             <div className={styles.otp_actions}>
-             <a href='#close'> <Button
-                btnText="SUBMIT"
-                func={() => {
-                  otpHandler(mobile_no_value);
-                }}
-              /></a>
+              <a href="#close">
+                {" "}
+                <Button
+                  btnText="SUBMIT"
+                  func={() => {
+                    otpHandler(mobile_no_value);
+                  }}
+                />
+              </a>
               <Button
                 btnText={
                   timeLeft === 0 ? (

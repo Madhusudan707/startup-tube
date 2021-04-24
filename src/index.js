@@ -11,14 +11,13 @@ import {
   ThemeProvider,
   PlaylistProvider,
   HistoryProvider,
-  UserProvider
+  UserProvider,
 } from "./contexts/index";
 import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <UserProvider>
+    <UserProvider>
       <ThemeProvider>
         <VideoProvider>
           <PlayerProvider>
@@ -28,7 +27,9 @@ ReactDOM.render(
                   <LikeProvider>
                     <PlaylistProvider>
                       <HistoryProvider>
-                        <App />
+                        <Router>
+                          <App />
+                        </Router>
                       </HistoryProvider>
                     </PlaylistProvider>
                   </LikeProvider>
@@ -38,8 +39,7 @@ ReactDOM.render(
           </PlayerProvider>
         </VideoProvider>
       </ThemeProvider>
-      </UserProvider>
-    </Router>
+    </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

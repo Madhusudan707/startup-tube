@@ -1,6 +1,5 @@
-import React from 'react'
 import styles from '../../../../styles/thumbnailFooter.module.css'
-import {useTheme} from '../../../../contexts/index'
+import {useTheme} from '../../../../contexts'
 
 export const ThumbnailFooter = ({func,title,views,timestamp,isHide}) => {
     const {theme} = useTheme()

@@ -6,12 +6,12 @@ export const initialState = {
   
   export const likeReducer = (state, action) => {
     switch (action.type) {
-      case "ADDED-LIKE-VIDEO":
+      case "ADDED_LIKE_VIDEO":
         return {
           loading: false,
           data: action.payload.likeVideo,
         };
-        case "REMOVED-LIKE-VIDEO":
+        case "REMOVED_LIKE_VIDEO":
             return {
               loading: false,
               data: action.payload.unlikeVideo,

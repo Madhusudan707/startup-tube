@@ -29,7 +29,7 @@ export const useSaveToPlaylistHandler = () => {
         }
         finally{
           libraryDispatch({
-            type: "SAVE-TO-NEW-PLAYLIST",
+            type: "SAVE_TO_NEW_PLAYLIST",
             payload: { newPlaylist: newPlaylistArray },
           });
         }
@@ -57,7 +57,7 @@ export const useSaveToPlaylistHandler = () => {
         }
         finally{
           libraryDispatch({
-            type: "SAVE-TO-PLAYLIST",
+            type: "SAVE_TO_PLAYLIST",
             payload: { playlist: playlistArray },
           });
         }

@@ -1,5 +1,4 @@
-import React from "react";
-import { useFilter } from "../../contexts/index";
+import { useFilter } from "../../contexts";
 import { AllThumbnail,FilterThumbnail, FilterSearch} from "./index";
 import styles from "../../styles/library.module.css";
 export const Library = () => {

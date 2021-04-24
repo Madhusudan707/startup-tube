@@ -15,11 +15,11 @@ export const useFetchVideos = () => {
     try {
       const response = await axios.get("https://startup-tube-backend.herokuapp.com/videos");
       videoDispatch({
-        type: "ON-SUCCESS",
+        type: "ON_SUCCESS",
         payload: { initialData: response.data.data },
       });
     } catch (err) {
-      videoDispatch({ type: "ON-FAILURE", payload: "" });
+      videoDispatch({ type: "ON_FAILURE", payload: "" });
     }
   };
 

@@ -1,8 +1,7 @@
-import React from "react";
 import styles from "../../styles/playerFooter.module.css";
 import SaveToPlaylist from '../SaveToPlaylist/SaveToPlaylist'
-import { useLikeHandler } from "../../hooks/index";
-const PlayerFooter = () => {
+import { useLikeHandler } from "../../hooks";
+export const PlayerFooter = () => {
   const { likeHandler, isLike,dislikeHandler,isDisLike } = useLikeHandler();
 
   return (
@@ -100,5 +99,3 @@ const PlayerFooter = () => {
     </div>
   );
 };
-
-export default PlayerFooter;

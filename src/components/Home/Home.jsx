@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../../styles/home.module.css";
 
 export const Home = () => {
@@ -17,16 +16,14 @@ export const Home = () => {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum. Why do we use it? It is a long
           established fact that a reader will be distracted by the readable
-       
         </p>
       </div>
-   <div className={styles.video_wrapper}>
-        <iframe title="about"
-        
+      <div className={styles.video_wrapper}>
+        <iframe
+          title="about"
           src="https://www.youtube.com/embed/17XZGUX_9iM"
         ></iframe>
-        </div>
-     
+      </div>
     </div>
   );
 };

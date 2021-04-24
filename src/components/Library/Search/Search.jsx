@@ -1,6 +1,5 @@
-import React from 'react'
 import styles from '../../../styles/search.module.css'
-import {useSearchHandler} from '../../../hooks/index'
+import {useSearchHandler} from '../../../hooks'
 export const Search = () => {
     const { searchHandler } = useSearchHandler();
     return (

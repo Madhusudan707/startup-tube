@@ -24,7 +24,7 @@ export const useFetchHistory = ()=>{
           });
           console.log("filterVideos",filterVideos)
           historyDispatch({
-            type: "FILTER-HISTORY-VIDEOS",
+            type: "FILTER_HISTORY_VIDEOS",
             payload: { historyVideos: filterVideos },
           });
         } catch (err) {

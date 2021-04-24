@@ -1,8 +1,6 @@
-import React from "react";
 import styles from "../../styles/player.module.css";
-import { usePlayer } from "../../contexts/index"
-import PlayerFooter from "./PlayerFooter";
-
+import { usePlayer } from "../../contexts";
+import {PlayerFooter} from "./PlayerFooter";
 
 const Player = () => {
   const { videoUrl, videoTitle } = usePlayer();

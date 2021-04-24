@@ -23,14 +23,14 @@ export const useLikeHandler = () => {
       }
       return video;
     });
-    videoDispatch({ type: "ON-SUCCESS", payload: { initialData: newArr } });
+    videoDispatch({ type: "ON_SUCCESS", payload: { initialData: newArr } });
 
     const likeArray = newArr.filter((video) =>
       video.favorite === true ? video : null
     );
     console.log(likeArray);
     likeDispatch({
-      type: "ADDED-LIKE-VIDEO",
+      type: "ADDED_LIKE_VIDEO",
       payload: { likeVideo: likeArray },
     });
   };
