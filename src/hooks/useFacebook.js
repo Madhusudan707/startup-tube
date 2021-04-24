@@ -6,26 +6,29 @@ import  {useUser} from '../contexts/index'
 
 export const  useFacebook=()=>{
     const navigate = useNavigate()
-    const {login,setLogin} = useUser()
-    const [data, setData] = useState({});
-    const [picture, setPicture] = useState("");
-
+    const {login,setLogin,setImage,setName,setFbid,image,name,id} = useUser()
     const responseFacebook = async (response) => {
         console.log(response);
         console.log("name",typeof(response.name))
         console.log("fb_id",typeof(response.id))
         console.log("img",typeof(response.picture.data.url))
-        setData(response);
-        setPicture(response.picture.data.url);
+       
         if (response.accessToken) {
             try{
               
-                await axios.post("https://startup-tube-backend.herokuapp.com/users",{name:response.name,fb_id:response.id})
+                await axios.post("https://startup-tube-backend.herokuapp.com/users",{name:response.name,fb_id:response.id,image:response.picture.data.url})
+                
                 setLogin(true);
-                navigate("user_profile")
+                setImage(response.picture.data.url);
+                setName(response.name)
+                setFbid(response.id)
+              
                 localStorage.setItem("login",true)
-                localStorage.setItem("username",response.name)
+                localStorage.setItem("fbid",response.id)
+                localStorage.setItem("name",response.name)
                 localStorage.setItem("image",response.picture.data.url)
+
+                navigate("user_profile")
             }catch(err){
                 console.log(`${err}:Unable to login with Facebook`)
             }
@@ -36,5 +39,5 @@ export const  useFacebook=()=>{
         }
       };
 
-      return {responseFacebook,login,data,picture}
+      return {responseFacebook,login,image,name,id}
 }

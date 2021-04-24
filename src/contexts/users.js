@@ -6,12 +6,15 @@ export const userContext = createContext({})
 export const UserProvider = ({children})=>{
     const [state,dispatch] = useReducer(userReducer,initialState)
     const [login, setLogin] = useState(false);
+    const [image, setImage] = useState(null);
+    const [name,setName] = useState(null)
+    const [fbid,setFbid] = useState(null)
 
    
 
     return (
 
-        <userContext.Provider value={{userState:state,userDispatch:dispatch,login,setLogin}}>
+        <userContext.Provider value={{userState:state,userDispatch:dispatch,login,setLogin,image,setImage,name,setName,fbid,setFbid}}>
             {children}
         </userContext.Provider>
     )

@@ -4,15 +4,14 @@ import routes from "./routing/routes";
 import './styles/App.css';
 import { useEffect } from 'react';
 import {useTheme} from './contexts/index'
-import {useLogin, usePathName} from './hooks/index'
+import {usePathName} from './hooks/index'
 import {useUser} from './contexts'
 
 
 const App=()=> {
   const {setOpacity} = useTheme()
   const {pathUrl} = usePathName()
-  const {login,setLogin} = useUser()
-  useLogin()
+  const {login,setLogin,image,setImage,name,setName} = useUser()
   useEffect(()=>{
       pathUrl==="/player"?setOpacity("opacity_light"):setOpacity("opacity_default")
        //Below Line remove the useEffect dependency warning
@@ -22,8 +21,12 @@ const App=()=> {
   useEffect(() => {
     (async () => {
       const login = await JSON.parse(localStorage.getItem("login"));
+      const image = await JSON.parse(localStorage.getItem("image"))
+      const name = await JSON.parse(localStorage.getItem("name"))
       if (login) {
         setLogin(login);
+        setImage(image);
+        setName(name);
       }
     })();
   }, []);
@@ -31,6 +34,8 @@ const App=()=> {
   useEffect(() => {
     (async () => {
       await localStorage.setItem("login", login);
+      await localStorage.setItem("image", image);
+      await localStorage.setItem("name", name);
     })();
   }, [login]);
 
