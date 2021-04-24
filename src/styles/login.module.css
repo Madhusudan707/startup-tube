@@ -152,6 +152,20 @@ legend{
   padding:1rem;
 }
 
+.otp_actions>a>button{
+  margin:5% 0;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0;
+  background: var(--secondary-color);
+}
+
+.otp_actions>a>button:hover{
+
+  color: var(--secondary-color);
+}
+
 .otp_actions>button{
   margin:5% 0;
   width: 100%;
@@ -160,8 +174,10 @@ legend{
   border-radius: 0;
   background: var(--secondary-color);
 }
+
 .otp_actions>button:hover{
 
   color: var(--secondary-color);
 }
+
 

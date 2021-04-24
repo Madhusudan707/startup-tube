@@ -1,4 +1,3 @@
-import React, { useState, useRef } from "react";
 import FacebookLogin from "react-facebook-login";
 import styles from "../../../styles/login.module.css";
 import { Button, Timer } from "../../index";
@@ -47,14 +46,14 @@ export const Login = () => {
               <h2> OR</h2>
               <span>
                 {!login && (
-                  <FacebookLogin
+                <a href="#!">  <FacebookLogin
                     appId="452382379375107"
                     // autoLoad={true}
                     fields="name,email,picture"
                     scope="public_profile,user_friends"
                     callback={responseFacebook}
                     icon="fa-facebook"
-                  />
+                  /></a>
                 )}
               </span>
               {/* <a href="#registerModal">Not registered? Create an account</a> */}
@@ -81,12 +80,12 @@ export const Login = () => {
             </div>
             {/* {urlHashValue==="#otpModal"?<Timer/>:null} */}
             <div className={styles.otp_actions}>
-              <Button
+             <a href='#close'> <Button
                 btnText="SUBMIT"
                 func={() => {
                   otpHandler(mobile_no_value);
                 }}
-              />
+              /></a>
               <Button
                 btnText={
                   timeLeft === 0 ? (
