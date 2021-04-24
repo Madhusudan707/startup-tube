@@ -11,9 +11,9 @@ export const  useFacebook=()=>{
 
     const responseFacebook = async (response) => {
         console.log(response);
-        console.log("name",response.name)
-        console.log("fb_id",response.id)
-        console.log("img",response.picture.data.url)
+        console.log("name",typeof(response.name))
+        console.log("fb_id",typeof(response.id))
+        console.log("img",typeof(response.picture.data.url))
         setData(response);
         setPicture(response.picture.data.url);
         if (response.accessToken) {
