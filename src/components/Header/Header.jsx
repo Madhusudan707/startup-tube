@@ -10,7 +10,6 @@ export const Header = () => {
     const Navigate = useNavigate()
     const {theme} = useTheme()
     const {login,setLogin}=useUser();
-    const {login} = useFacebook()
     
   
 
