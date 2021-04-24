@@ -50,7 +50,6 @@ export const Login = () => {
                     appId="452382379375107"
                     // autoLoad={true}
                     fields="name,email,picture"
-                    scope="public_profile,user_friends"
                     callback={responseFacebook}
                     icon="fa-facebook"
                   /></a>
