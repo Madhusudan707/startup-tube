@@ -18,8 +18,9 @@ export const  useFacebook=()=>{
         setPicture(response.picture.data.url);
         if (response.accessToken) {
             try{
+              
+                await axios.post("http://startup-tube-backend.herokuapp.com/users",{name:response.name,fb_id:response.id})
                 setLogin(true);
-                await axios.post("https://startup-tube-backend.herokuapp.com/users",{ name:response.name,fb_id:response.id})
                 navigate("user_profile")
                 localStorage.setItem("login",true)
                 localStorage.setItem("username",response.name)

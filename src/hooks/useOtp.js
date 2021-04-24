@@ -20,7 +20,7 @@ export const useOtp = () => {
       await axios.get(
         `https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${session_id}/${otp.current.value}`
       );
-      await axios.post("https://startup-tube-backend.herokuapp.com/users",{ mobile:mobile_no})
+      await axios.post("http://startup-tube-backend.herokuapp.com/users",{ mobile:mobile_no})
       // localStorage.setItem("userId",mobile_no)
       setLoginOtp(true)
       console.log("useOtp",loginOtp)
