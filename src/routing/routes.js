@@ -1,6 +1,6 @@
 import { HOME,LIBRARY,PLAYER,PLAYLIST,HISTORY,PLAYLIST_THUMBNAILS,USER_PROFILE} from "./paths";
-import {HomePage,LibraryPage,PlayerPage,PlaylistPage,HistoryPage,PlaylistThumbnailPage} from '../pages/index'
-import {UserProfile} from '../components/index'
+import {HomePage,LibraryPage,PlayerPage,PlaylistPage,HistoryPage,PlaylistThumbnailPage,UserProfilePage} from '../pages/index'
+
 
 
 
@@ -44,7 +44,7 @@ const PLAYER_SEVEN = {
 };
 
 const USER_PROFILE_EIGHT = {
-  component: UserProfile,
+  component: UserProfilePage,
   path: USER_PROFILE
 }
 
