@@ -11,7 +11,7 @@ import {useUser} from './contexts'
 const App=()=> {
   const {setOpacity} = useTheme()
   const {pathUrl} = usePathName()
-  const {loginOtp,setLoginOtp} = useUser()
+  const {login,setLogin} = useUser()
   useLogin()
   useEffect(()=>{
       pathUrl==="/player"?setOpacity("opacity_light"):setOpacity("opacity_default")
@@ -21,19 +21,18 @@ const App=()=> {
 
   useEffect(() => {
     (async () => {
-      const loginOtp = await JSON.parse(localStorage.getItem("loginOtp"));
-      if (loginOtp) {
-        setLoginOtp(loginOtp);
+      const login = await JSON.parse(localStorage.getItem("login"));
+      if (login) {
+        setLogin(login);
       }
     })();
   }, []);
 
   useEffect(() => {
     (async () => {
-    //   setLoginOtp(loginOtp);
-      await localStorage.setItem("loginOtp", loginOtp);
+      await localStorage.setItem("login", login);
     })();
-  }, [loginOtp]);
+  }, [login]);
 
   return (
     <div className="App">

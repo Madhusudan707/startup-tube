@@ -1,11 +1,12 @@
 import {useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import  {useUser} from '../contexts/index'
 
 
 export const  useFacebook=()=>{
     const navigate = useNavigate()
-    const [login, setLogin] = useState(false);
+    const {login,setLogin} = useUser()
     const [data, setData] = useState({});
     const [picture, setPicture] = useState("");
 

@@ -9,23 +9,23 @@ import {useFacebook } from "../../hooks"
 export const Header = () => {
     const Navigate = useNavigate()
     const {theme} = useTheme()
-    const {loginOtp,setLoginOtp}=useUser();
+    const {login,setLogin}=useUser();
     const {login} = useFacebook()
     
   
 
     const logoutHandler=()=>{
-        setLoginOtp(false);
+        setLogin(false);
         Navigate('/')
     }
     return (
         <div className={`${styles.header} ${theme}`}>
             <Brand/>
             <NavBar/>
-            {login || loginOtp?<ProfileIcon/>:<Login/>}
+            {login?<ProfileIcon/>:<Login/>}
             {/* <Register/> */}
-            {console.log("login_header",loginOtp)}
-           {login || loginOtp&&<Button btnText="LOGOUT" func={logoutHandler}/>}
+            {console.log("login_header",login)}
+           {login&&<Button btnText="LOGOUT" func={logoutHandler}/>}
         </div>
     )
 }

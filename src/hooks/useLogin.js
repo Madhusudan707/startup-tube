@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 export const useLogin = () => {
+  const [login, setLogin] = useState(false);
 
-  const [loginOtp, setLoginOtp] = useState(false);
-
- 
-
-  return { loginOtp, setLoginOtp };
+  return { login, setLogin };
 };
