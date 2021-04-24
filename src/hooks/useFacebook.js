@@ -8,25 +8,27 @@ export const  useFacebook=()=>{
     const navigate = useNavigate()
     const {login,setLogin,setImage,setName,setFbid,image,name,id} = useUser()
     const responseFacebook = async (response) => {
-        console.log(response);
-        console.log("name",typeof(response.name))
-        console.log("fb_id",typeof(response.id))
-        console.log("img",typeof(response.picture.data.url))
+        console.log("response",response);
+        console.log("name",response.name)
+        console.log("fb_id",response.id)
+        console.log("img",response.picture.data.url)
        
         if (response.accessToken) {
             try{
               
                 await axios.post("https://startup-tube-backend.herokuapp.com/users",{name:response.name,fb_id:response.id,image:response.picture.data.url})
                 
-                setLogin(true);
-                setImage(response.picture.data.url);
-                setName(response.name)
-                setFbid(response.id)
               
                 localStorage.setItem("login",true)
                 localStorage.setItem("fbid",response.id)
                 localStorage.setItem("name",response.name)
                 localStorage.setItem("image",response.picture.data.url)
+                setLogin(true);
+                setImage(response.picture.data.url);
+                setName(response.name)
+                setFbid(response.id)
+              
+               
 
                 navigate("user_profile")
             }catch(err){
