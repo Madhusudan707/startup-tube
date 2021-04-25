@@ -11,7 +11,10 @@ export const  useFacebook=()=>{
         console.log("name",response.name)
         console.log("fb_id",response.id)
         console.log("img",response.picture.data.url)
-
+        console.log(typeof(response.id))
+        console.log("fbidres",response.id)
+        console.log("localStorage",typeof(localStorage.getItem("fbid")))
+        console.log("fbidls",localStorage.getItem("fbid"))
         if(response.id===localStorage.getItem("fbid")){
             setLogin(true);
             navigate("user_profile")
