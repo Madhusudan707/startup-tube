@@ -10,7 +10,7 @@ export const Library = () => {
     <div className={styles.library}>
        
      <FilterSearch />
-    {filterState.data.length ? <AllThumbnail /> : <FilterThumbnail />}
+    {filterState.data.length ?  <FilterThumbnail /> : <AllThumbnail />}
     </div>
   );
 };
