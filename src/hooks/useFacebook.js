@@ -19,10 +19,10 @@ export const useFacebook = () => {
     setImage(response.picture.data.url);
     setName(response.name);
     setFbid(response.id);
-    localStorage.setItem("login", true);
-    localStorage.setItem("fbid", response.id);
-    localStorage.setItem("name", response.name);
-    localStorage.setItem("image", response.picture.data.url);
+    await localStorage.setItem("login", true);
+    await localStorage.setItem("fbid", response.id);
+    await localStorage.setItem("name", response.name);
+    await localStorage.setItem("image", response.picture.data.url);
     if (response.id === localStorage.getItem("fbid")) {
       setLogin(true);
       navigate("user_profile");
