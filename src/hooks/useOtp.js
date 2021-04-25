@@ -9,12 +9,14 @@ export const useOtp = () => {
   const {login,setLogin} = useUser()
  
   const otpHandler = async (mobile_no) => {
+    console.log("otp",mobile_no)
     try {
       const API_KEY = process.env.REACT_APP_TWOFACTOR_API_KEY;
       const session_id = await localStorage.getItem("session_id_otp");
       await axios.get(
         `https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${session_id}/${otp.current.value}`
       );
+      console.log( `https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${session_id}/${otp.current.value}`)
       await axios.post("http://startup-tube-backend.herokuapp.com/users",{ mobile:mobile_no})
       // localStorage.setItem("userId",mobile_no)
       setLogin(true)

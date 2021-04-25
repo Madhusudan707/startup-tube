@@ -1,15 +1,15 @@
 import styles from "../../../styles/profileIcon.module.css";
 import { Link } from "react-router-dom";
 import { USER_PROFILE } from "../../../routing/paths";
+import {useUser} from "../../../contexts"
 
 export const ProfileIcon = () => {
-  const picture = localStorage.getItem("picture");
-  console.log(picture);
+const {image} = useUser()
   return (
     <>
-      {picture ? (
+      {image ? (
         <Link to={USER_PROFILE}>
-          <img className={styles.profile_image} src={picture} alt="profile" />
+          <img className={styles.profile_image} src={image} alt="profile" />
         </Link>
       ) : (
         <Link to={USER_PROFILE}>

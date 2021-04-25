@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import  {useUser} from '../contexts/index'
@@ -15,10 +14,6 @@ export const  useFacebook=()=>{
        
         if (response.accessToken) {
             try{
-              
-                await axios.post("https://startup-tube-backend.herokuapp.com/users",{name:response.name,fb_id:response.id,image:response.picture.data.url})
-                
-              
                 localStorage.setItem("login",true)
                 localStorage.setItem("fbid",response.id)
                 localStorage.setItem("name",response.name)
@@ -27,9 +22,7 @@ export const  useFacebook=()=>{
                 setImage(response.picture.data.url);
                 setName(response.name)
                 setFbid(response.id)
-              
-               
-
+                await axios.post("https://startup-tube-backend.herokuapp.com/users",{name:response.name,fb_id:response.id,image:response.picture.data.url})
                 navigate("user_profile")
             }catch(err){
                 console.log(`${err}:Unable to login with Facebook`)
