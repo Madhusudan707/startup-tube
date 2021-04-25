@@ -11,8 +11,13 @@ export const  useFacebook=()=>{
         console.log("name",response.name)
         console.log("fb_id",response.id)
         console.log("img",response.picture.data.url)
+
+        if(response.id===localStorage.getItem("fbid")){
+            setLogin(true);
+            navigate("user_profile")
+        }
        
-        if (response.accessToken) {
+       else if (response.accessToken) {
             try{
                 localStorage.setItem("login",true)
                 localStorage.setItem("fbid",response.id)
@@ -22,8 +27,9 @@ export const  useFacebook=()=>{
                 setImage(response.picture.data.url);
                 setName(response.name)
                 setFbid(response.id)
-                await axios.post("https://startup-tube-backend.herokuapp.com/users",{name:response.name,fb_id:response.id,image:response.picture.data.url})
                 navigate("user_profile")
+                await axios.post("https://startup-tube-backend.herokuapp.com/users",{name:response.name,fb_id:response.id,image:response.picture.data.url})
+              
             }catch(err){
                 console.log(`${err}:Unable to login with Facebook`)
             }
