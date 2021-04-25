@@ -11,12 +11,12 @@ export const FilterThumbnail = () => {
   const { filterState } = useFilter();
   return (
     <div className={styles.all_thumbnail}>
-      {filterState.data.map(({id,title,url,thumbnail,views,timestamp}) => {
+      {filterState.data.map(({_id,title,url,thumbnail,views,timestamp}) => {
         return (
-          <Link to={PLAYER}  key={id}  onClick={() => {
+          <Link to={PLAYER}  key={_id}  onClick={() => {
             urlTitleHandler(title, url);
           }}>
-            <Thumbnail image={thumbnail} func={()=>{videoIdHandler(id)}} />
+            <Thumbnail image={thumbnail} func={()=>{videoIdHandler(_id)}} />
             <ThumbnailFooter  
             title={title}
             views={views}

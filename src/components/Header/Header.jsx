@@ -11,6 +11,12 @@ export const Header = () => {
 
   const logoutHandler = () => {
     setLogin(false);
+    localStorage.removeItem("login")
+    localStorage.removeItem("image")
+    localStorage.removeItem("name")
+    localStorage.removeItem("session_id_otp")
+    localStorage.removeItem("mobile_no")
+    localStorage.removeItem("_id")
     Navigate("/");
   };
   return (

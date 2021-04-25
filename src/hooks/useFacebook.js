@@ -15,7 +15,7 @@ export const useFacebook = () => {
     id,
   } = useUser();
   const responseFacebook = async (response) => {
-      
+      console.log(response)
     setImage(response.picture.data.url);
     setName(response.name);
     setFbid(response.id);

@@ -37,7 +37,7 @@ export const History = () => {
 
       const filterVideos = await videoState.data.filter((video) => {
         return response.data.data.some((history) => {
-          return history.vid === video.id;
+          return history.vid === video._id;
         });
       });
       console.log("filterVideos", filterVideos);
@@ -51,20 +51,20 @@ export const History = () => {
   };
   return (
     <div className={styles.history}>
-      {historyState.data.map(({id,title,url,thumbnail}) => {
+      {historyState.data.map(({_id,title,url,thumbnail}) => {
         return (
           <Link
-            key={id}
+            key={_id}
             to={`${PLAYER}`}
             onClick={() => {
               urlTitleHandler(title, url);
             }}
           >
             <Thumbnail
-              key={id}
+              key={_id}
               image={thumbnail}
               func={() => {
-                videoIdHandler(id);
+                videoIdHandler(_id);
               }}
             />
           </Link>

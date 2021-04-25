@@ -15,11 +15,11 @@ export const AllThumbnail = () => {
 
   return (
     <div className={styles.all_thumbnail}>
-      {videoState.data.map(({id,title,url,thumbnail,views,timestamp}) => {
+      {videoState.data.map(({_id,title,url,thumbnail,views,timestamp}) => {
         return (
           <Link
             to={PLAYER}
-            key={id}
+            key={_id}
             onClick={() => {
               urlTitleHandler(title,url);
             }}
@@ -27,7 +27,7 @@ export const AllThumbnail = () => {
             <Thumbnail
               image={thumbnail}
               func={() => {
-                postHistory(id);
+                postHistory(_id);
               }}
             />
             <ThumbnailFooter
