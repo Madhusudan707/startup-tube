@@ -25,7 +25,7 @@ export const useOtp = () => {
       
       
     } catch (err) {
-      console.log(`${err}:Unable to Login`);
+      console.log(`${err}:Unable to Login incorrect otp`);
     }
   };
 
