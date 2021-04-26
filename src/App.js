@@ -21,9 +21,9 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      const login = await JSON.parse(localStorage.getItem("login"));
-      const image = await JSON.parse(localStorage.getItem("image"));
-      const name = await JSON.parse(localStorage.getItem("name"));
+      const login = await localStorage.getItem("login")
+      const image = await localStorage.getItem("image")
+      const name = await localStorage.getItem("name")
       if (login) {
         setLogin(login);
         setImage(image);
