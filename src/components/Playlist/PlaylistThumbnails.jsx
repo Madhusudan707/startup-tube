@@ -12,7 +12,7 @@ export const PlaylistThumbnails = () => {
   const fetchPlaylistByName = async () => {
     try {
       const playlistResponse = axios.get(
-        `https://startup-tube-backend.herokuapp.com/playlists:${playlist_name}`
+        `https://startup-tube-backend.herokuapp.com/playlists/name:${playlist_name}`
       );
       console.log(playlistResponse);
     } catch (err) {
