@@ -1,4 +1,5 @@
-import { axios, useEffect } from "react";
+import { useEffect } from "react";
+import axios from  'axios'
 
 export const PlaylistThumbnails = () => {
   
@@ -11,11 +12,13 @@ export const PlaylistThumbnails = () => {
 
   const fetchPlaylistByName = async () => {
     try {
-      const playlistResponse = axios.get(
+      const playlistResponse = await axios.get(
         `https://startup-tube-backend.herokuapp.com/playlists/name/${playlist_name}`
       );
+    
       console.log(playlistResponse);
     } catch (err) {
+      console.log( `https://startup-tube-backend.herokuapp.com/playlists/name/${playlist_name}`)
       console.log(`${err} Unable to load Playlist`);
     }
   };
