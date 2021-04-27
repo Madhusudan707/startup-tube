@@ -22,7 +22,6 @@ export const useFetchHistory = ()=>{
               return history.vid === video.id;
             });
           });
-          console.log("filterVideos",filterVideos)
           historyDispatch({
             type: "FILTER_HISTORY_VIDEOS",
             payload: { historyVideos: filterVideos },

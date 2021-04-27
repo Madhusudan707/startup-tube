@@ -28,7 +28,6 @@ export const useLikeHandler = () => {
     const likeArray = newArr.filter((video) =>
       video.favorite === true ? video : null
     );
-    console.log(likeArray);
     likeDispatch({
       type: "ADDED_LIKE_VIDEO",
       payload: { likeVideo: likeArray },
