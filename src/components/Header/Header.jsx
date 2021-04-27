@@ -6,15 +6,17 @@ import { useTheme, useUser } from "../../contexts";
 import { useEffect } from "react";
 
 export const Header = () => {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const { theme } = useTheme();
   const { login, setLogin } = useUser();
 
   useEffect(()=>{
     if(!login){
-      Navigate("/");
+      navigate("/");
+    }else{
+      navigate("user_profile");
     }
-  })
+  },[])
 
   const logoutHandler = async () => {
     setLogin(false);
@@ -25,7 +27,7 @@ export const Header = () => {
     await localStorage.removeItem("mobile_no")
     await localStorage.removeItem("_id")
     await localStorage.removeItem("fbid")
-    Navigate("/");
+    navigate("/");
   };
   return (
     <div className={`${styles.header} ${theme}`}>
