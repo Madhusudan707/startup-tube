@@ -28,6 +28,11 @@ export const playlistReducer = (state, action) => {
         loading: false,
         data: action.payload.watchLater,
       };
+    case "PLAYLIST_BY_NAME":
+      return{
+        loading:false,
+        data:action.payload.byName
+      }
     case "RESET":
       return {
         loading: false,
