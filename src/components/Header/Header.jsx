@@ -9,7 +9,7 @@ export const Header = () => {
   const { theme } = useTheme();
   const { login, setLogin } = useUser();
 
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
     setLogin(false);
     await localStorage.removeItem("login")
     await localStorage.removeItem("image")
