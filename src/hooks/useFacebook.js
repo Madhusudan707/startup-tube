@@ -16,7 +16,8 @@ export const useFacebook = () => {
   } = useUser();
   const responseFacebook = async (response) => {
     
-    if (response.id === localStorage.getItem("fbid")) {
+    if (response.id === await localStorage.getItem("fbid")) {
+     
       setImage(response.picture.data.url);
       setName(response.name);
       setFbid(response.id);
@@ -26,7 +27,24 @@ export const useFacebook = () => {
       await localStorage.setItem("image", response.picture.data.url);
       setLogin(true);
       navigate("user_profile");
+    }else if(response.id){
+      try{
+          await axios.get(`https://startup-tube-backend.herokuapp.com/users/fb/${response.id}`)
+      
+          setImage(response.picture.data.url);
+          setName(response.name);
+          setFbid(response.id);
+          await localStorage.setItem("login", true);
+          await localStorage.setItem("fbid", response.id);
+          await localStorage.setItem("name", response.name);
+          await localStorage.setItem("image", response.picture.data.url);
+          setLogin(true);
+          navigate("user_profile");
+        }catch(err){
+        console.log(`${err}:Unable to find user using fb id`)
+      }
     } else if (response.accessToken) {
+     
       try {
         await axios.post("https://startup-tube-backend.herokuapp.com/users", {
           name: response.name,

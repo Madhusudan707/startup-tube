@@ -3,21 +3,22 @@ import { Brand, NavBar, Login, ProfileIcon } from "./";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../";
 import { useTheme, useUser } from "../../contexts";
+import { useEffect } from "react";
 
 export const Header = () => {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const { theme } = useTheme();
   const { login, setLogin } = useUser();
-
-  const logoutHandler = () => {
+  const logoutHandler = async () => {
     setLogin(false);
-    localStorage.removeItem("login")
-    localStorage.removeItem("image")
-    localStorage.removeItem("name")
-    localStorage.removeItem("session_id_otp")
-    localStorage.removeItem("mobile_no")
-    localStorage.removeItem("_id")
-    Navigate("/");
+    await localStorage.removeItem("login")
+    await localStorage.removeItem("image")
+    await localStorage.removeItem("name")
+    await localStorage.removeItem("session_id_otp")
+    await localStorage.removeItem("mobile_no")
+    await localStorage.removeItem("_id")
+    await localStorage.removeItem("fbid")
+    navigate("/");
   };
   return (
     <div className={`${styles.header} ${theme}`}>

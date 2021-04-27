@@ -8,7 +8,7 @@ export const useSaveToPlaylistHandler = () => {
 
   const saveToPlaylistHandler =async (videoIdParam) => {
     if (videoIdParam) {
-      const userId = localStorage.getItem("_id")
+      const userId = await localStorage.getItem("_id")
       const isPlaylist = libraryState.data.some(
         (playlist) => playlist.name === inputPlaylist.current.value
       );
