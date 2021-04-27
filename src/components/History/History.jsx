@@ -40,7 +40,6 @@ export const History = () => {
           return history.vid === video._id;
         });
       });
-      console.log("filterVideos", filterVideos);
       historyDispatch({
         type: "FILTER_HISTORY_VIDEOS",
         payload: { historyVideos: filterVideos },

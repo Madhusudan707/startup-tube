@@ -5,7 +5,6 @@ import {useUser} from '../../contexts'
 export const Library = () => {
   const { filterState } = useFilter();
   const {login} = useUser()
-  console.log("log",login)
   return (
     <div className={styles.library}>
        

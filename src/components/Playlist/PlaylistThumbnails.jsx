@@ -16,7 +16,6 @@ export const PlaylistThumbnails = () => {
   const { videoIdHandler } = useVideoIdHandler();
   const parsedUrl = new URL(window.location.href);
   const playlist_name = parsedUrl.searchParams.get("name");
-  console.log(playlist_name);
   useEffect(() => {
     fetchPlaylistByName();
   });
@@ -26,8 +25,6 @@ export const PlaylistThumbnails = () => {
       const playlistResponse = await axios.get(
         `https://startup-tube-backend.herokuapp.com/playlists/name/${playlist_name}`
       );
-      console.log(playlistResponse);
-      console.log(playlistResponse.data.playlistName.vid);
       playlistDispatch({type:'PLAYLIST_BY_NAME',payload:{byName:playlistResponse.data.playlistName.vid}})
     } catch (err) {
       console.log(`${err} Unable to load Playlist`);
