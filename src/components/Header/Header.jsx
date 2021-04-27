@@ -3,11 +3,18 @@ import { Brand, NavBar, Login, ProfileIcon } from "./";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../";
 import { useTheme, useUser } from "../../contexts";
+import { useEffect } from "react";
 
 export const Header = () => {
   const Navigate = useNavigate();
   const { theme } = useTheme();
   const { login, setLogin } = useUser();
+
+  useEffect(()=>{
+    if(!login){
+      Navigate("/");
+    }
+  })
 
   const logoutHandler = async () => {
     setLogin(false);
