@@ -9,15 +9,6 @@ export const Header = () => {
   const navigate = useNavigate();
   const { theme } = useTheme();
   const { login, setLogin } = useUser();
-
-  useEffect(()=>{
-    if(!login){
-      navigate("/");
-    }else{
-      navigate("user_profile");
-    }
-  },[])
-
   const logoutHandler = async () => {
     setLogin(false);
     await localStorage.removeItem("login")
