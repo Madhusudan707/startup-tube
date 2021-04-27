@@ -29,7 +29,7 @@ export const useFacebook = () => {
       navigate("user_profile");
     }else if(response.id){
       try{
-          await axios.post(`https://startup-tube-backend.herokuapp.com/users/fb/${response.id}`)
+          await axios.get(`https://startup-tube-backend.herokuapp.com/users/fb/${response.id}`)
       
           setImage(response.picture.data.url);
           setName(response.name);
