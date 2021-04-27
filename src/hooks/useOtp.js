@@ -19,7 +19,7 @@ export const useOtp = () => {
         setLogin(true);
       } else {
         const response = await axios.post(
-          "http://startup-tube-backend.herokuapp.com/users",
+          "https://startup-tube-backend.herokuapp.com/users",
           {
             mobile: mobile_no,
           }
