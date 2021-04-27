@@ -17,6 +17,7 @@ export const Header = () => {
     localStorage.removeItem("session_id_otp")
     localStorage.removeItem("mobile_no")
     localStorage.removeItem("_id")
+    localStorage.removeItem("fbid")
     Navigate("/");
   };
   return (
