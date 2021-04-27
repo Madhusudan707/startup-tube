@@ -34,9 +34,9 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      await localStorage.setItem("login", login);
-      await localStorage.setItem("image", image);
-      await localStorage.setItem("name", name);
+      await JSON.stringify(localStorage.setItem("login", login));
+      await JSON.stringify(localStorage.setItem("image", image));
+      await JSON.stringify(localStorage.setItem("name", name));
     })();
   }, [login]);
 
