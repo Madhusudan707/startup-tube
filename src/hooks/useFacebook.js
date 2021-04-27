@@ -17,6 +17,13 @@ export const useFacebook = () => {
   const responseFacebook = async (response) => {
     
     if (response.id === localStorage.getItem("fbid")) {
+      setImage(response.picture.data.url);
+      setName(response.name);
+      setFbid(response.id);
+      await localStorage.setItem("login", true);
+      await localStorage.setItem("fbid", response.id);
+      await localStorage.setItem("name", response.name);
+      await localStorage.setItem("image", response.picture.data.url);
       setLogin(true);
       navigate("user_profile");
     } else if (response.accessToken) {
