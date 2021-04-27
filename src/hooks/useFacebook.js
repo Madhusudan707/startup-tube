@@ -16,7 +16,8 @@ export const useFacebook = () => {
   } = useUser();
   const responseFacebook = async (response) => {
     
-    if (response.id === localStorage.getItem("fbid")) {
+    if (response.id === await localStorage.getItem("fbid")) {
+      console.log("1")
       setImage(response.picture.data.url);
       setName(response.name);
       setFbid(response.id);
@@ -27,6 +28,7 @@ export const useFacebook = () => {
       setLogin(true);
       navigate("user_profile");
     } else if (response.accessToken) {
+      console.log("1")
       try {
         await axios.post("https://startup-tube-backend.herokuapp.com/users", {
           name: response.name,

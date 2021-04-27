@@ -5,7 +5,7 @@ import {useVideoId} from '../contexts/index'
 export const usePostHistory = ()=>{
     const {setVid} = useVideoId()
     const postHistory = async (videoId)=>{
-      const userId = localStorage.getItem("_id")
+      const userId = await localStorage.getItem("_id")
       setVid(videoId)
       try{
         console.log(videoId)

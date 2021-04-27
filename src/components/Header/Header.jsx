@@ -11,13 +11,13 @@ export const Header = () => {
 
   const logoutHandler = () => {
     setLogin(false);
-    localStorage.removeItem("login")
-    localStorage.removeItem("image")
-    localStorage.removeItem("name")
-    localStorage.removeItem("session_id_otp")
-    localStorage.removeItem("mobile_no")
-    localStorage.removeItem("_id")
-    localStorage.removeItem("fbid")
+    await localStorage.removeItem("login")
+    await localStorage.removeItem("image")
+    await localStorage.removeItem("name")
+    await localStorage.removeItem("session_id_otp")
+    await localStorage.removeItem("mobile_no")
+    await localStorage.removeItem("_id")
+    await localStorage.removeItem("fbid")
     Navigate("/");
   };
   return (
