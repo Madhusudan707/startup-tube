@@ -30,19 +30,14 @@ export const History = () => {
   }, []);
 
   const fetchHistory = async () => {
+    const userId = localStorage.getItem("_id")
     try {
       const response = await axios.get(
-        "https://startup-tube-backend.herokuapp.com/histories"
+        `https://startup-tube-backend.herokuapp.com/users-activity/user/history/${userId}`
       );
-
-      const filterVideos = await videoState.data.filter((video) => {
-        return response.data.data.some((history) => {
-          return history.vid === video._id;
-        });
-      });
       historyDispatch({
         type: "FILTER_HISTORY_VIDEOS",
-        payload: { historyVideos: filterVideos },
+        payload: { historyVideos: response.data.data.history },
       });
     } catch (err) {
       console.log(err, "Unable to Load History, Try Again");
