@@ -1,5 +1,5 @@
 import React from 'react'
-import {Like} from '../components/index'
+import {Like,Message} from '../components/index'
 import { useNavigate } from 'react-router-dom';
 // import styles from '../styles/page.module.css'
 import {useUser} from '../contexts'
@@ -8,7 +8,7 @@ export const LikePage = () => {
     let navigate = useNavigate()
     return (
         <div className="">
-         {login?<Like/>:navigate("/loginModal")}
+         {login?<Like/>:<Message msg="Login to View The Content"/>}
         </div>
     )
 }
