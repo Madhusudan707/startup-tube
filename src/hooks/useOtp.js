@@ -4,43 +4,54 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/index";
 
 export const useOtp = () => {
+
   const otp = useRef(null);
   let navigate = useNavigate();
-  const {setLogin } = useUser();
+  const { setLogin } = useUser();
 
   const otpHandler = async (mobile_no) => {
-    console.log("otp", mobile_no);
     try {
       const API_KEY = process.env.REACT_APP_TWOFACTOR_API_KEY;
       const session_id = await localStorage.getItem("session_id_otp");
+
       await axios.get(
         `https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${session_id}/${otp.current.value}`
       );
-      if(mobile_no=== await localStorage.getItem("mobile_no")){
-        
-        setLogin(true);
-        console.log("3")
-      }
-        else{
-         const response = await  axios.post("http://startup-tube-backend.herokuapp.com/users", {
-            mobile: mobile_no,
-          });
+      if (mobile_no) {
+        try {
+          const response = await axios.get(
+            `https://startup-tube-backend.herokuapp.com/users/mobile/${mobile_no}`
+          );
+          setLoginData(response,mobile_no)
           
-          await localStorage.setItem("_id",response.data.users._id)
-         await localStorage.setItem("mobile_no",mobile_no);
-          setLogin(true);
-          console.log("4")
-         
-         }
-        
-       
-     
-
-      navigate("user_profile");
+        } catch (err) {
+          console.log(`${err}:Unable to Find the user, Now Register the user`);
+        }
+      } else {
+        try {
+          const response = await axios.post(
+            "https://startup-tube-backend.herokuapp.com/users",
+            {
+              mobile: mobile_no,
+            }
+          );
+          setLoginData(response,mobile_no)
+        } catch (err) {
+          console.log(`${err}:Unable to Register the user,Try Again`);
+        }
+      }
     } catch (err) {
       console.log(`${err}:Unable to Login incorrect otp`);
     }
   };
+
+  const setLoginData = async(response,mobile_no)=>{
+    await localStorage.setItem("_id", response.data.data._id);
+    await localStorage.setItem("mobile_no", mobile_no);
+    await localStorage.setItem("login", true);
+    setLogin(true);
+    navigate("user_profile");
+  }
 
   return { otpHandler, otp };
 };

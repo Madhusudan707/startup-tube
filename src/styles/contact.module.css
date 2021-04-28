@@ -46,8 +46,8 @@
   }
   
   .modal_content {
-    width: 40%;
-    height:auto;
+    width: 30%;
+    height:250px;
     position: relative;
     margin: 10% auto;
     background: #ffffff;

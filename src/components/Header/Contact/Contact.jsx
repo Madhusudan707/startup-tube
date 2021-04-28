@@ -49,14 +49,14 @@ export const Contact = () => {
               <i className="fab fa-instagram fa-3x instagram"></i>
             </a>
           </div>
-          <div className={styles.contact_inputs}>
+          {/* <div className={styles.contact_inputs}>
             <input type="text" placeholder="Your Name" />
             <input type="email" placeholder="Your Email" />
             <textarea rows="4" cols="50" defaultValue="Your Message"></textarea>
-          </div>
-          <div className={styles.contact_action}>
+          </div> */}
+          {/* <div className={styles.contact_action}>
             <Button btnText="SUBMIT" />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import styles from "../../../styles/navbar.module.css";
 import { Link } from "react-router-dom";
-import { HOME, LIBRARY, PLAYLIST, HISTORY } from "../../../routing/paths";
+import { HOME, LIBRARY, PLAYLIST, HISTORY,LIKE } from "../../../routing/paths";
 import { Contact } from "../../index";
 import { usePathName } from "../../../hooks";
 
@@ -39,13 +39,16 @@ export const NavBar = () => {
           </Link>
         </li>
         <li>
-          <a href="#!">LIKE VIDEOS</a>
+          <Link
+            to={LIKE}
+            className={pathUrl === "/like" ? styles.active : null}
+          >
+            LIKE VIDEOS
+          </Link>
         </li>
-        {/* <li><a href="#!">WATCH LATER</a></li> */}
         <li>
           <a href="#contactModal">CONTACT</a>
         </li>
-        {/* <li><a href="#!">BLOG</a></li> */}
       </ul>
       <Contact />
     </div>

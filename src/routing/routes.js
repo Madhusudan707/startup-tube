@@ -1,5 +1,5 @@
-import { HOME,LIBRARY,PLAYER,PLAYLIST,HISTORY,PLAYLIST_THUMBNAILS,USER_PROFILE} from "./paths";
-import {HomePage,LibraryPage,PlayerPage,PlaylistPage,HistoryPage,PlaylistThumbnailPage,UserProfilePage} from '../pages/index'
+import { HOME,LIBRARY,PLAYER,PLAYLIST,HISTORY,PLAYLIST_THUMBNAILS,USER_PROFILE,LIKE} from "./paths";
+import {HomePage,LibraryPage,PlayerPage,PlaylistPage,HistoryPage,PlaylistThumbnailPage,UserProfilePage,LikePage} from '../pages/index'
 
 
 
@@ -25,6 +25,11 @@ const HISTORY_FIVE = {
   component:HistoryPage,
   path:HISTORY
 };
+
+const LIKE_SIX = {
+  component:LikePage,
+  path:LIKE
+};
 // const WATCH_LATER_FOUR={
 //   component:WatchLaterPage,
 //   path:WATCH_LATER
@@ -48,6 +53,6 @@ const USER_PROFILE_EIGHT = {
   path: USER_PROFILE
 }
 
-const routes = [HOME_ONE,LIBRARY_TWO,PLAYLIST_THREE,PLAYLIST_THUMBNAILS_FOUR,HISTORY_FIVE,PLAYER_SEVEN,USER_PROFILE_EIGHT];
+const routes = [HOME_ONE,LIBRARY_TWO,PLAYLIST_THREE,PLAYLIST_THUMBNAILS_FOUR,HISTORY_FIVE,LIKE_SIX,PLAYER_SEVEN,USER_PROFILE_EIGHT];
 
 export default routes;

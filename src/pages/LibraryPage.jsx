@@ -1,10 +1,13 @@
 import React from 'react'
-import {Library} from '../components/index'
+import {Library,Message} from '../components/index'
+import {useUser} from '../contexts'
 // import styles from '../styles/page.module.css'
 export const LibraryPage = () => {
+    const {login} = useUser()
     return (
         <div className="">
-            <Library/>
+            
+            {login?<Library/>:<Message msg="Login to View The Content"/>}
         </div>
     )
 }

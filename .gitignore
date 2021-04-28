@@ -2,12 +2,12 @@
 
 # dependencies
 /node_modules
-backend/node_modules
+DataModelTemp.json
 .env
 /.pnp
 .pnp.js
 .cert
-/mkcert
+mkcert
 # testing
 /coverage
 

@@ -5,47 +5,41 @@ import { Link } from "react-router-dom";
 import { PLAYER } from "../../routing/paths";
 import {
   useUrlTitleHandler,
-  useFetchVideos,
   useVideoIdHandler,
 } from "../../hooks/index";
-import { useHistory } from "../../contexts/index";
-import styles from "../../styles/history.module.css";
+import { useLike } from "../../contexts/index";
+import styles from "../../styles/like.module.css";
 
-export const History = () => {
-  const { videoState } = useFetchVideos();
-  const { historyState, historyDispatch } = useHistory();
+export const Like = () => {
+    const { likeState, likeDispatch } = useLike();
   const { urlTitleHandler } = useUrlTitleHandler();
   const { videoIdHandler } = useVideoIdHandler();
-  // const {videoIdHandler,historyState} = useFetchHistory()
-  /**
-   * !Already Created Hook for fetching history but facing some bugs
-   * TODO:FIX useFetchHistory hook Bug
-   */
+ 
   useEffect(() => {
-    fetchHistory();
+    fetchLike();
     /**
      * !Below Line remove the useEffect dependency warning
      * */
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const fetchHistory = async () => {
+  const fetchLike = async () => {
     const userId = localStorage.getItem("_id")
     try {
       const response = await axios.get(
-        `https://startup-tube-backend.herokuapp.com/users-activity/user/history/${userId}`
+        `https://startup-tube-backend.herokuapp.com/users-activity/user/like/${userId}`
       );
-      historyDispatch({
-        type: "FILTER_HISTORY_VIDEOS",
-        payload: { historyVideos: response.data.data.history },
+      likeDispatch({
+        type: "FILTER_LIKE_VIDEOS",
+        payload: { likeVideos: response.data.data.like},
       });
     } catch (err) {
-      console.log(err, "Unable to Load History, Try Again");
+      console.log(err, "Unable to Load Like, Try Again");
     }
   };
   return (
-    <div className={styles.history}>
-      {historyState.data.map(({_id,title,url,thumbnail}) => {
+    <div className={styles.like}>
+      {likeState.data.map(({_id,title,url,thumbnail}) => {
         return (
           <Link
             key={_id}
