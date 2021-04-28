@@ -11,6 +11,11 @@ export const initialState = {
           loading: false,
           data: action.payload.likeVideo,
         };
+      case "FILTER_LIKE_VIDEOS":
+        return {
+          loading: false,
+          data: action.payload.likeVideos,
+        };
         case "REMOVED_LIKE_VIDEO":
             return {
               loading: false,
