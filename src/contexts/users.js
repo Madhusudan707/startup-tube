@@ -9,12 +9,13 @@ export const UserProvider = ({children})=>{
     const [image, setImage] = useState(null);
     const [name,setName] = useState(null)
     const [fbid,setFbid] = useState(null)
+    const [userId,setUserId] = useState(null)
 
    
 
     return (
 
-        <userContext.Provider value={{userState:state,userDispatch:dispatch,login,setLogin,image,setImage,name,setName,fbid,setFbid}}>
+        <userContext.Provider value={{userState:state,userDispatch:dispatch,login,setLogin,image,setImage,name,setName,fbid,setFbid,userId,setUserId}}>
             {children}
         </userContext.Provider>
     )

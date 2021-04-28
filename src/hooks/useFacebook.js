@@ -12,43 +12,49 @@ export const useFacebook = () => {
     setFbid,
     image,
     name,
-    id,
+    setUserId,
+    userId
   } = useUser();
   const responseFacebook = async (response) => {
 
     if (response.id) {
       try {
-        await axios.get(
+       const responseData= await axios.get(
           `https://startup-tube-backend.herokuapp.com/users/fb/${response.id}`
         );
-        setLoginData(response);
+       if(responseData.data.data){
+          setLoginData(response,responseData.data.data._id);
+       }else{
+           try{
+            const responseData=   await axios.post("https://startup-tube-backend.herokuapp.com/users", {
+              name: response.name,
+              fb_id: response.id,
+              image: response.picture.data.url,
+            });
+            setLoginData(response,responseData.data.users._id);
+           }catch(err){
+            console.log(`${err}:Unable to login with Facebook`);
+           }
+       }
+       
       } catch (err) {
         console.log(
           `${err}:Unable to find user using fb id, now register the user`
         );
       }
-    } else if (response.accessToken) {
-      try {
-        await axios.post("https://startup-tube-backend.herokuapp.com/users", {
-          name: response.name,
-          fb_id: response.id,
-          image: response.picture.data.url,
-        });
-        setLoginData(response);
-      } catch (err) {
-        console.log(`${err}:Unable to login with Facebook`);
-      }
-    } else {
+    }  else {
       setLogin(false);
       navigate("/");
     }
   };
 
-  const setLoginData = async (response) => {
+  const setLoginData = async (response,_id) => {
     setImage(response.picture.data.url);
     setName(response.name);
     setFbid(response.id);
+    setUserId(_id)
     await localStorage.setItem("login", true);
+    await localStorage.setItem("_id",_id)
     await localStorage.setItem("fbid", response.id);
     await localStorage.setItem("name", response.name);
     await localStorage.setItem("image", response.picture.data.url);
@@ -56,5 +62,5 @@ export const useFacebook = () => {
     navigate("user_profile");
   };
 
-  return { responseFacebook, login, image, name, id };
+  return { responseFacebook, login, image, name,userId};
 };
