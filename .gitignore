@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 DataModelTemp.json
+temp_script.txt
 .env
 /.pnp
 .pnp.js
