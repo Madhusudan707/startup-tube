@@ -2,7 +2,7 @@ import styles from "../../styles/playerFooter.module.css";
 import SaveToPlaylist from '../SaveToPlaylist/SaveToPlaylist'
 import { useLikeHandler } from "../../hooks";
 export const PlayerFooter = () => {
-  const { likeHandler, isLike,dislikeHandler,isDisLike } = useLikeHandler();
+  const { likeHandler, isLike } = useLikeHandler();
 
   return (
     <div className={styles.player_footer_main}>
@@ -53,9 +53,9 @@ export const PlayerFooter = () => {
             </a>
           </li>
           <li>
-            <a href="#!" onClick={dislikeHandler}>
+            <a href="#!">
               <span className={styles.nav_items}>
-                <img src={isDisLike?"/images/thumb_down_red.svg":"/images/thumb_down_black_24dp.svg"} alt="explore" />
+                <img src="/images/thumb_down_black_24dp.svg" alt="explore" />
                 <span className="caption">21</span>
               </span>
             </a>
