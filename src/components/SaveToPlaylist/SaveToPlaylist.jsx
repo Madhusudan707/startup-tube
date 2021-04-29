@@ -1,9 +1,9 @@
 import styles from "../../styles/saveToPlaylist.module.css";
 import { useSaveToPlaylistHandler } from "../../hooks";
-import { useVideoId } from "../../contexts";
+import { useVideoId} from "../../contexts";
 
 const SaveToPlaylist = () => {
-  const { saveToPlaylistHandler, inputPlaylist } = useSaveToPlaylistHandler();
+  const { saveToPlaylistHandler, inputPlaylist,color,msg } = useSaveToPlaylistHandler();
   const { vid } = useVideoId();
   return (
     <div>
@@ -30,6 +30,7 @@ const SaveToPlaylist = () => {
             </datalist>
           </div>
           <div className={styles.modal_action}>
+            <br/>
             <button
               className={`${styles.btn} ${styles.btn_link}`}
               onClick={() => {
@@ -38,6 +39,7 @@ const SaveToPlaylist = () => {
             >
               Add
             </button>
+            <p style={{color:color}}>{msg}</p>
           </div>
         </div>
       </div>
