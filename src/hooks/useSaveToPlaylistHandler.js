@@ -1,13 +1,15 @@
-import { useRef } from "react";
+import { useRef,useState } from "react";
 import axios from "axios";
 import { useLibrary } from "../contexts/index";
 
 export const useSaveToPlaylistHandler = () => {
   const inputPlaylist = useRef(null);
+  const [msg,setMsg] = useState("")
+  const [color,setColor] = useState(null)
   const { libraryState, libraryDispatch } = useLibrary();
 
   const saveToPlaylistHandler = async (videoIdParam) => {
-    if (videoIdParam) {
+    if (videoIdParam && inputPlaylist.current.value) {
       const userId = await localStorage.getItem("_id");
       const isPlaylist = libraryState.data.some(
         (playlist) => playlist.name === inputPlaylist.current.value
@@ -62,7 +64,13 @@ export const useSaveToPlaylistHandler = () => {
           });
         }
       }
+
+      setMsg(` Playlist ${inputPlaylist.current.value} Created Successfully `)
+      setColor("#59D78B")
+    }else{
+      setMsg("Playlist name required")
+      setColor("#FF0000")
     }
   };
-  return { saveToPlaylistHandler, inputPlaylist };
+  return { saveToPlaylistHandler, inputPlaylist,color,msg };
 };

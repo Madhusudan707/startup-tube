@@ -39,10 +39,14 @@
   justify-content: center;
 }
 
-
-
+.modal_action{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-flow:column
+}
 .modal_action>button{
-   position: relative;
+  
   
 }
 .modal_input>input::placeholder{
