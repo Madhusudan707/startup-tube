@@ -16,7 +16,7 @@ export const useOtp = () => {
       const session_id = await localStorage.getItem("session_id_otp");
 
       await axios.get(
-        `https://2factor.in/API/V1/${process.env.TWO_FACTOR_API}/SMS/VERIFY/${session_id}/${otp.current.value}`
+        `https://2factor.in/API/V1/9b6af8cc-a271-11eb-80ea-0200cd936042/SMS/VERIFY/${session_id}/${otp.current.value}`
       );
       if (mobile_no) {
         try {
