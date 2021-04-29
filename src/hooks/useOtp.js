@@ -11,12 +11,12 @@ export const useOtp = () => {
 
   const otpHandler = async (mobile_no) => {
     try {
-      const API_KEY =process.env.TWO_FACTOR_API; //server
+      // const API_KEY =process.env.TWO_FACTOR_API; //server
       // const API_KEY = process.env.REACT_APP_TWOFACTOR_API_KEY  //Local
       const session_id = await localStorage.getItem("session_id_otp");
 
       await axios.get(
-        `https://2factor.in/API/V1/${API_KEY}/SMS/VERIFY/${session_id}/${otp.current.value}`
+        `https://2factor.in/API/V1/${process.env.TWO_FACTOR_API}/SMS/VERIFY/${session_id}/${otp.current.value}`
       );
       if (mobile_no) {
         try {
