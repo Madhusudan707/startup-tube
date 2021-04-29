@@ -11,7 +11,7 @@ export const useOtp = () => {
 
   const otpHandler = async (mobile_no) => {
     try {
-      const API_KEY = process.env.REACT_APP_TWOFACTOR_API_KEY;
+      const API_KEY = process.env.REACT_APP_TWOFACTOR_API_KEY || process.env.TWO_FACTOR_API;
       const session_id = await localStorage.getItem("session_id_otp");
 
       await axios.get(
