@@ -1,0 +1,23 @@
+{
+    "_id": {
+        "user_id": 1,
+        "history":[],
+        "like":[],
+        "playlist":[
+            {
+              "name":"Watch_Later",
+              "videoId":[]
+            }
+          ]
+    }
+}
+
+// Actual Mongoose Schemas
+
+
+//  uid:{type:Schema.Types.ObjectId,ref:'Users'},
+//     history:[{type:Schema.Types.ObjectId,ref:'Videos'}],
+//     like:[{type:Schema.Types.ObjectId,ref:'Videos'}],
+//     playlist:[{name:String,vid:[{type:Schema.Types.ObjectId,ref:'Videos'}],}]
+
+

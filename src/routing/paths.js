@@ -1,0 +1,11 @@
+export const HOME = "/"
+export const LIBRARY = "/library"
+export const PLAYLIST = "/playlists"
+export const PLAYLIST_THUMBNAILS = "/playlist"
+export const HISTORY = "/history"
+// export const WATCH_LATER = "/watch_later"
+export const LIKE = "/like"
+export const PLAYER = "/player"
+export const USER_PROFILE = "/user_profile"
+// export const CONTACT="/#contactModal"
+

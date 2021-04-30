@@ -1,0 +1,109 @@
+/*modal */
+
+.btn {
+    width: 100px;
+    padding: 10px;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 0px;
+    cursor: pointer;
+    
+}
+
+.btn_primary,
+.btn_link {
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+.btn_link {
+    color: #000000;
+    background-color: #fefefe;
+}
+
+.btn_primary {
+    color: #ffffff;
+    background-color: #1976d2;
+}
+
+/*code copied from https://codepen.io/Lightislands/pen/XdYYgb?editors=1100 */
+
+.modal_content {
+    width: 30%;
+    height: 200px;
+    position: relative;
+    margin: 10% auto;
+    background: #ffffff;
+    display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.modal_action{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-flow:column
+}
+.modal_action>button{
+  
+  
+}
+.modal_input>input::placeholder{
+    font-size:0.7rem;
+    text-align: center;
+}
+
+.modal_input>input {
+    padding: 1rem;
+    /* margin: 22% 12%; */
+}
+
+.modal {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999999;
+    opacity: 0;
+    -webkit-transition: opacity 100ms ease-in;
+    -moz-transition: opacity 100ms ease-in;
+    transition: opacity 100ms ease-in;
+    pointer-events: none;
+    display: grid;
+
+    align-items: center;
+}
+
+.modal:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+
+
+.modal_close {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: #000000;
+    line-height: 25px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.modal_close:hover {
+    background: #ffffff;
+    color: #e53935
+}

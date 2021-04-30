@@ -1,0 +1,10 @@
+.heading{
+    width: 100%;
+    display:flex;
+ font-size:1.5rem !important;
+    justify-content: center;
+    
+}
+.heading>h3{
+    text-align: center;
+}

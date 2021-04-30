@@ -1,0 +1,22 @@
+.playlist{
+    font-size:2rem;
+    display: flex;
+    
+   
+}
+.playlist_box{
+    width:200px;
+    border-bottom:2px solid var(--primary-color);
+    border-top:2px solid var(--primary-color);
+    border-radius:0.5rem;
+    padding:8rem;
+    margin:1rem;
+    cursor:pointer;
+    color:var(--brand-color);
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.playlist>a{
+    text-decoration: none;
+    color:var(--brand-color);
+}
