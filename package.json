@@ -1,29 +1,22 @@
 {
-  "name": "startup-tube-again3",
+  "name": "startup-tube",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "14.16.0"
-  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
+    "@craco/craco": "^6.1.2",
     "axios": "^0.21.1",
+    "font-awesome": "^4.7.0",
     "history": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-facebook-login": "^4.1.1",
-    "react-loader-spinner": "^4.0.0",
+    "react-router": "^6.0.0-beta.0",
     "react-router-dom": "^6.0.0-beta.0",
-    "react-scripts": "4.0.3",
-    "react-timer-hook": "^3.0.2",
-    "web-vitals": "^1.1.1"
+    "react-scripts": "4.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,5 +36,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "eslint": "^7.25.0",
+    "eslint-plugin-react": "^7.23.2",
+    "postcss": "^7.0.35",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2"
   }
 }
