@@ -17,7 +17,7 @@ export const Navbar = () => {
           </span>
         </div>
       </div>
-      <div className="block lg:hidden flex items-center">
+      <div className="block lg:hidden">
         <button onClick={menuToggleHandler}
           className="flex items-center px-3 py-2 border rounded text-teal-100 border-teal-400 hover:text-white hover:border-white"
           id="navbar-btn"
