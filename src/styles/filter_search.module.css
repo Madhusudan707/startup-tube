@@ -1,7 +1,0 @@
-.filter_search{
-    display:flex;
-    grid-area:filter-search;
-    align-items: center;
-    justify-content:center;
-    margin-top: 2%;
-}
