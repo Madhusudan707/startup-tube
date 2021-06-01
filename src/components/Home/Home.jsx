@@ -23,7 +23,7 @@ const responsive = {
 
 export const Home = () => {
   return (
-    <div className="mt-72">
+    <div className="fixed bottom-0 lg:w-full w-full">
       <Carousel
         responsive={responsive}
         additionalTransfrom={0}
